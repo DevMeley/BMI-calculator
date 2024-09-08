@@ -6,6 +6,7 @@ const calculate = document.getElementById("calculate")
 calculate.addEventListener('click', event => {
     event.preventDefault()
 
+
     if (myWeight.value ==="" && myHeight.value === '') {
         showError( myHeight, "Weight and Height cannot be empty")
     }
@@ -15,9 +16,11 @@ calculate.addEventListener('click', event => {
     else if (Number(myHeight.value) === 0) {
         showError(myHeight, "Height cannot be zero")
     } 
+    else if (Number(myWeight.value) === 0) {
+        showError(myHeight, "Weight cannot be zero")
+    } 
     else{
 
-        clearError(myHeight, myWeight)
 
         const getWeight = Number(myWeight.value) 
 
@@ -55,4 +58,8 @@ clearError = (element) =>{
     displayError.innerText = ''
     displayError.classList.add("success")
     displayError.classList.remove('error')
+}
+
+clearCalculator = () =>{
+
 }
